@@ -18,5 +18,12 @@ class Student:
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
-
+    student_instance = Student(
+        name='Stanislav',
+        surname='Eliseev',
+        faculty='LP Advanced',
+        course=2,
+    )
+    full_name_student = student_instance.get_full_name()
+    print(full_name_student)
+    
