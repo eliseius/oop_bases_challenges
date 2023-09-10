@@ -25,5 +25,5 @@ if __name__ == '__main__':
         balance=145.2,
     )
     print(f'Баланс {account_instance.balance}')
-    new_balance = round(account_instance.increase_balance(15.1),1)
+    new_balance = round(account_instance.increase_balance(15.1), 1)
     print(f'Новый баланс {new_balance}')
