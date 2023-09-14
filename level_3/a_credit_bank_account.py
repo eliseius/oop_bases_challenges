@@ -13,17 +13,16 @@ class BankAccount:
         self.owner_full_name = owner_full_name
         self.balance = balance
     
-    def is_eligible_for_credit(self):
-        return self.balance > 1000
-
-
-class CreditAccount(BankAccount):
     def increase_balance(self, amount: float):
         self.balance += amount
 
     def decrease_balance(self, amount: float):
         self.balance -= amount
 
+
+class CreditAccount(BankAccount):
+    def is_eligible_for_credit(self):
+        return self.balance > 1000
 
 
 if __name__ == '__main__':

@@ -27,10 +27,10 @@ class Product:
 
 class AlcoholProduct(Product):
     def is_available(self):
-        responce = True
+        sales_permit = True
         if 5 < datetime.now().hour < 23:
-            responce = False
-        return super().is_available() and responce
+            sales_permit = False
+        return super().is_available() and sales_permit
 
 
 if __name__ == '__main__':
