@@ -27,7 +27,8 @@ class CreditAccount(BankAccount):
 
 if __name__ == '__main__':
     bob = BankAccount(owner_full_name='Robert Nesta Marley', balance=250000.35)
-    print(bob.is_eligible_for_credit())
+    bob.increase_balance(amount=6990)
+    bob.decrease_balance(amount=249900.1)
 
     ziggy = CreditAccount(owner_full_name='David Nesta Marley', balance=400.12)
     print(ziggy.is_eligible_for_credit())

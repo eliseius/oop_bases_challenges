@@ -24,9 +24,9 @@ class UserManager:
 
 class AdminManager(UserManager):
     def ban_username(self, username):
-        try:
+        if username in self.usernames:
             self.usernames.remove(username)
-        except ValueError:
+        else:
             print('Такого пользователя не существует')
 
 
