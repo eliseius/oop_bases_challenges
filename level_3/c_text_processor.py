@@ -20,8 +20,19 @@ class TextProcessor:
         return f'Total text length: {len(self.text)}'
 
 
-# код писать тут
+class AdvancedTextProcessor(TextProcessor):
+    def summarize(self):
+        total_words = len(self.text.split())
+        return super().summarize() + f', total number of words in the text: {total_words}'
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
+    text = 'Бесплатный сервис Google позволяет мгновенно переводить слова, фразы и веб-страницы. Поддерживается более 100 языков.'
+    text_structure = TextProcessor(text=text)
+    print(text_structure.to_upper())
+    print(text_structure.summarize())
+
+    text = 'Google Переводчик (англ. Google Translate) — веб-служба компании Google, предназначенная для автоматического перевода части текста или веб-страницы на другой язык.'
+    text_structure = AdvancedTextProcessor(text=text)
+    print(text_structure.to_upper())
+    print(text_structure.summarize())
