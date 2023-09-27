@@ -36,4 +36,3 @@ if __name__ == '__main__':
     print(ziggy.is_eligible_for_credit())
     ziggy.decrease_balance(amount=200.1)
     print(ziggy.is_eligible_for_credit())
-
