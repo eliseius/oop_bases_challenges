@@ -23,7 +23,7 @@ class Form:
 
 class AuthorizationFormMixin(Form):
     def valid_form(self):
-        return super().valid_form() and (self.username in USERNAMES_IN_DB)
+        return super().valid_form() and self.username in USERNAMES_IN_DB
 
 
 class AuthorizationForm(AuthorizationFormMixin, Form):
