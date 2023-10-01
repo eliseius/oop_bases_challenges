@@ -37,9 +37,7 @@ class JSONHandler(FileHandler):
 class CSVHandler(FileHandler):
     def read(self):
         with open(self.filename, 'r') as csvfile:
-            file_reader = csv.DictReader(csvfile)
-            users_data = [row for row in file_reader]
-            return users_data
+            return list(csv.DictReader(csvfile))
 
 
 if __name__ == '__main__':
