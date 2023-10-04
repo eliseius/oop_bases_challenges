@@ -27,14 +27,14 @@ class Product:
 
 class FoodProduct(Product):
     def __init__(self, expiration_date, title, quantity):
-        self.expiration_date = datetime.strptime(expiration_date, '%d.%m.%Y')
+        self.expiration_date = expiration_date
         super().__init__(title, quantity)
     
     def get_full_info(self):
         return f'Product {self.title}, {self.quantity} in stock, expiration_date {self.expiration_date}'
     
     def is_available(self):
-        return super().is_available() and datetime.now() < self.expiration_date
+        return super().is_available() and datetime.now().date() < self.expiration_date
 
 
 if __name__ == '__main__':
@@ -42,6 +42,8 @@ if __name__ == '__main__':
     print(paper.get_full_info())
     print(paper.is_available())
 
-    milk = FoodProduct(title='milk', quantity=5, expiration_date='29.09.2023')
+    str_date = '29.09.2023'
+    expiration_date = datetime.strptime(str_date, '%d.%m.%Y').date()
+    milk = FoodProduct(title='milk', quantity=5, expiration_date=expiration_date)
     print(milk.get_full_info())
     print(milk.is_available())
