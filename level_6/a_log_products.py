@@ -19,24 +19,39 @@ class Product:
         return f'Product {self.title} with price {self.price}'
 
 
-class PremiumProduct(Product):
+class PrintLoggerMixin():
+    def log(self, message: str):
+        print(message)
+
+
+class PremiumProduct(PrintLoggerMixin, Product):
     def increase_price(self):
         self.price *= 1.2
 
     def get_info(self):
         base_info = super().get_info()
-        return f'{base_info} (Premium)'
+        text = f'{base_info} (Premium)'
+        super().log(message=text)
+        return text
 
 
-class DiscountedProduct(Product):
-    def increase_price(self):
+class DiscountedProduct(PrintLoggerMixin, Product):
+    def decrease_price(self):
         self.price /= 1.2
 
     def get_info(self):
         base_info = super().get_info()
-        return f'{base_info} (Discounted)'
+        text = f'{base_info} (Discounted)'
+        super().log(message=text)
+        return text
 
 
 if __name__ == '__main__':
-    pass
+    lemon = PremiumProduct(title='Лимон', price=2.45)
+    lemon.increase_price()
+    lemon.get_info()
+
+    tomato = DiscountedProduct(title='Помидор', price=4.23)
+    tomato.decrease_price()
+    tomato.get_info()
 
