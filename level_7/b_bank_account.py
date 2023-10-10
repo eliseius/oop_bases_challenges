@@ -17,7 +17,7 @@ class BankAccount:
         self.balance = balance
 
     def decrease_balance(self, amount: float):
-        if (self.balance - amount) > self.min_balance:
+        if self.balance - amount > self.min_balance:
             self.balance -= amount
         else:
             raise ValueError

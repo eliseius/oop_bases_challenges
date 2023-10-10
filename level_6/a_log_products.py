@@ -20,8 +20,11 @@ class Product:
 
 
 class PrintLoggerMixin():
-    def log(self, message: str):
-        print(message)
+    def __inin__(self, message: str):
+        self.message = message
+
+    def log(self):
+        print(self.message)
 
 
 class PremiumProduct(PrintLoggerMixin, Product):
@@ -30,9 +33,8 @@ class PremiumProduct(PrintLoggerMixin, Product):
 
     def get_info(self):
         base_info = super().get_info()
-        text = f'{base_info} (Premium)'
-        super().log(message=text)
-        return text
+        self.message = f'{base_info} (Premium)'
+        return self.message
 
 
 class DiscountedProduct(PrintLoggerMixin, Product):
@@ -41,17 +43,18 @@ class DiscountedProduct(PrintLoggerMixin, Product):
 
     def get_info(self):
         base_info = super().get_info()
-        text = f'{base_info} (Discounted)'
-        super().log(message=text)
-        return text
+        self.message = f'{base_info} (Discounted)'
+        return self.message
 
 
 if __name__ == '__main__':
     lemon = PremiumProduct(title='Лимон', price=2.45)
     lemon.increase_price()
     lemon.get_info()
+    lemon.log()
 
     tomato = DiscountedProduct(title='Помидор', price=4.23)
     tomato.decrease_price()
     tomato.get_info()
+    tomato.log()
 
