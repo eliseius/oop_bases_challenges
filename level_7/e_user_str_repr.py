@@ -12,6 +12,12 @@ class User:
         self.user_id = user_id
         self.email = email
         self.is_admin = is_admin
+    
+    def __str__(self):
+        return f'Id user {self.user_id}, email {self.email}'
+    
+    def __repr__(self):
+        return f'{self.is_admin}'
 
 
 if __name__ == '__main__':
