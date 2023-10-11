@@ -8,8 +8,6 @@
        и если он уменьшается больше чем можно, то вызывается исключение
 """
 
-EBAY_TITLE = 'eBay'
-
 
 class BankAccount:
     min_balance = -100
@@ -19,8 +17,13 @@ class BankAccount:
         self.balance = balance
 
     def decrease_balance(self, amount: float):
-        pass  # писать код тут
+        if self.balance - amount > self.min_balance:
+            self.balance -= amount
+        else:
+            raise ValueError
 
 
 if __name__ == '__main__':
-    pass  # писать код тут
+    user = BankAccount(owner='John', balance=500.7)
+    user.decrease_balance(amount=400)
+    user.decrease_balance(amount=250)
